@@ -1,0 +1,15 @@
+[Unit]
+Description=Door sensor
+After=network.target
+
+[Service]
+Type=simple
+Environment="SECRET=pGNqduRFkB4K9C2vijOmUDa2kPtUhArN"
+ExecStart=/home/jabub/poocam/door.py -h "192.168.55.103" -c "/home/jabub/poocam/mqtt_credentials.json"
+Restart=on-failure
+User=jabub
+Group=jabub
+
+[Install]
+WantedBy=multi-user.target
+
